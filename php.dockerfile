@@ -1,13 +1,12 @@
 FROM php:8.2-fpm
 
 # Arguments for user setup
-ARG user=deployer
+ARG user=www-data
 ARG uid=1000
 
 # Set up user
-RUN echo "Adding user ${user} with UID ${uid}" \
-    && useradd -G www-data,root -u ${uid} -d /home/${user} ${user} \
-    && mkdir -p /home/${user} \
+#RUN echo "Adding user ${user} with UID ${uid}" \
+RUN mkdir -p /home/${user} \
     && chown -R ${uid}:${uid} /home/${user}
 
 RUN chown -R ${user}:${user} /var/www

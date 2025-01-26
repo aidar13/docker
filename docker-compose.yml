@@ -22,7 +22,7 @@ services:
     build:
       context: ./../mybpo-backend
       args:
-        user: deployer
+        user: www-data
         uid: 1000
       dockerfile: ./../docker/php.dockerfile
     volumes:
